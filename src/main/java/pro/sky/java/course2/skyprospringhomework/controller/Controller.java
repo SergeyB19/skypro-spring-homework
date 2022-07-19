@@ -7,6 +7,8 @@ import pro.sky.java.course2.skyprospringhomework.controller.domain.service.Start
 import pro.sky.java.course2.skyprospringhomework.controller.domain.service.exceptions.WrongLoginException;
 import pro.sky.java.course2.skyprospringhomework.controller.domain.service.exceptions.WrongPasswordException;
 
+import static org.apache.coyote.http11.Constants.a;
+
 @RestController
 public class Controller {
     private final StartPageService startPageService;
@@ -16,14 +18,14 @@ public class Controller {
     }
 
     @GetMapping("/login")
-    public static String login() throws WrongLoginException {
+    public static void login(@RequestParam(name = "login") String a) throws WrongLoginException {
         if (a <= 20) {
             throw new WrongLoginException("Неверный логин");
             try {
-                login();
+                login(a);
 
             } catch (WrongLoginException) {
-                return "Неверный логин";
+                return;
             } finally {
                 System.out.println("Проверка завершена");
             }
@@ -39,7 +41,7 @@ public class Controller {
                 login();
 
             } catch (WrongLoginException) {
-                return "Неверный пароль";
+                return;
             } finally {
                 System.out.println("Проверка завершена");
             }
@@ -52,7 +54,6 @@ public class Controller {
                 login();
 
             } catch (WrongLoginException) {
-                return "Неверный пароль";
             } finally {
                 System.out.println("Проверка завершена");
             }
