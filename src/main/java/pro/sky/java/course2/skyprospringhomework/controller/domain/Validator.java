@@ -30,7 +30,7 @@ public class Validator {
         if (!Object.equals(password, confirmPassword)) {
             throw new WrongPasswordException("Пароли должны совпадать");
         }
-        Checker checker = new LoopChecker();
+        Checker checker = new RegexpChecker();
         checker.check(login,true);
         checker.check(password,false);
     }

@@ -8,7 +8,7 @@ public class RegexpChecker implements Checker{
     public void check(String s, boolean login) throws WrongLoginException, WrongPasswordException {
 
     }
-        if (!s.matches("")) {
+        if (!s.matches("^\\w{1,20}$")) {
             if (login) {
                 throw new WrongLoginException("Логин должен содержать только символы латинского алфавита, цифры, или знак подчеркивания");
             } else {
