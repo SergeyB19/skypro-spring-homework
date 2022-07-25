@@ -9,9 +9,9 @@ public class RegexpChecker implements Checker{
 
     }
         if (!s.matches("^\\w{1,20}$")) {
-            if (login) {
+            if (login)
                 throw new WrongLoginException("Логин должен содержать только символы латинского алфавита, цифры, или знак подчеркивания");
-            } else {
+            else {
                 throw new WrongPasswordException("Пароль должен содержать только символы латинского алфавита, цифры, или знак подчеркивания");
             }
     }
